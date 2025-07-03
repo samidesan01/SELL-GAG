@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SUMMERPETS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --border-color: #444;
+      --popup-bg: rgba(255, 255, 255, 0.9);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Fredoka One', cursive;
+      background: 
+  url('forest2.gif') no-repeat center center fixed,
+  linear-gradient(135deg, #eafaf1, #fdf5c9);
+background-size: cover, cover;
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    .sparkle {
+      position: fixed;
+      top: 100%;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: white;
+      box-shadow: 0 0 8px 4px rgba(255,255,255,0.5);
+      opacity: 0.8;
+      animation: sparkleRise 5s linear infinite;
+      z-index: 1;
+    }
+
+    @keyframes sparkleRise {
+      0% { transform: translateY(0); opacity: 0.8; }
+      100% { transform: translateY(-120vh); opacity: 0; }
+    }
+
+    .sparkle-container {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .navbar {
+      backdrop-filter: blur(30px);
+      box-shadow: 0px 0px 30px rgba(227, 228, 237, 0.37);
+      border: 2px solid rgba(255, 255, 255, 0.18);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 20px;
+      z-index: 1000;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .nav-link {
+      font-family: 'Fredoka One', cursive;
+      color: #333;
+      text-decoration: none;
+      font-size: 1rem;
+      background: #fff3;
+      padding: 6px 12px;
+      border-radius: 8px;
+      transition: background 0.3s ease;
+    }
+
+    .nav-link:hover {
+      background: #fffa;
+    }
+
+    .nav-link.active {
+      background: #ffd54f;
+      color: #000;
+      box-shadow: 0 0 12px 4px rgba(255, 221, 51, 0.8);
+      font-weight: bold;
+    }
+
+
+    @keyframes cloudMove {
+      from { background-position-x: 0; }
+      to { background-position-x: -1000px; }
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      color: #fff;
+      text-shadow: 2px 2px 5px #333;
+      margin: 100px 0 30px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 20px;
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .card {
+      width: 100%;
+      aspect-ratio: 3/4;
+      perspective: 1000px;
+      position: relative;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .card-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.6s ease;
+    }
+
+    .card-link {
+      display: inline-block;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 4px solid var(--border-color);
+      box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+      backface-visibility: hidden;
+      top: 0;
+      left: 0;
+    }
+
+    .card-front img,
+    .card-back img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hover-info {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    .hover-text,
+    .stock-text {
+      background: var(--popup-bg);
+      color: #222;
+      padding: 8px 12px;
+      border-radius: 10px;
+      font-size: 1rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+    }
+
+    .stock-text {
+      margin-top: 6px;
+      font-size: 0.9rem;
+    }
+
+    .card:hover .hover-text,
+    .card:hover .stock-text {
+      opacity: 0.9;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card img.overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 180px;
+      height: auto;
+      pointer-events: none;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+        margin-top: 100px;
+      }
+
+      .container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      .nav-link {
+        font-size: 0.9rem;
+        padding: 5px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="sparkle-container"></div>
+
+  <nav class="navbar">
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">MAIN</a>
+      <a href="NIGHTPETS.html" class="nav-link">NIGHT PETS</a>
+      <a href="BEEEVENTPETS.html" class="nav-link">BEE EVENT PETS</a>
+      <a href="SUMMERPETS.html" class="nav-link">SUMMER PETS</a>
+      <a href="OTHERS.html" class="nav-link">OTHERS</a>
+    </div>
+  </nav>
+
+  
+
+  <h1>SUMMER PETS</h1>
+  <div class="container" id="cardContainer"></div>
+
+  <script src="main.js"></script>
+
+</body>
+</html>

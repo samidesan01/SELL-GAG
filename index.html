@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MAIN</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Fredoka One', cursive;
+      background: 
+  url('forest2.gif') no-repeat center center fixed,
+  linear-gradient(135deg, #eafaf1, #fdf5c9);
+background-size: cover, cover;
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      backdrop-filter: blur(30px);
+      background: rgba(255, 255, 255, 0.25);
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 12px 20px;
+      z-index: 1000;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .nav-link {
+      color: #333;
+      text-decoration: none;
+      font-size: 1rem;
+      background: rgba(255, 255, 255, 0.6);
+      padding: 8px 14px;
+      border-radius: 10px;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .nav-link:hover {
+      background: #fff;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-link.active {
+      background: #ffd54f;
+      color: #000;
+      font-weight: bold;
+      box-shadow: 0 0 12px 4px rgba(255, 221, 51, 0.5);
+    }
+
+    /* TITLE */
+    h1 {
+  font-size: 2.8rem;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  margin: 100px auto 30px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  width: fit-content;
+}
+
+    /* MAIN BUTTONS */
+    .center-content {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 40px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .link-card {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 18px 26px;
+      border-radius: 14px;
+      text-decoration: none;
+      color: #333;
+      font-size: 1.3rem;
+      box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .link-card:hover {
+      transform: scale(1.08);
+      background: #fff9c4;
+    }
+
+    /* PAY BUTTON FIXED */
+    .pay-container {
+      position: fixed;
+      top: 65px;
+      right: 20px;
+      z-index: 999;
+    }
+
+    @media (max-width: 600px) {
+      .pay-container {
+        top: auto;
+        bottom: 20px;
+        right: 20px;
+      }
+    }
+
+    .pay-button {
+  padding: 8px 14px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: 'Fredoka One', cursive;
+  cursor: pointer;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+  transition: background 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.pay-button:hover {
+  background-color: #45a049;
+}
+
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.2rem;
+        margin-top: 140px;
+      }
+
+      .pay-container {
+        top: 60px;
+        right: 10px;
+      }
+
+      .link-card {
+        font-size: 1.1rem;
+        padding: 14px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Navbar -->
+  <nav class="navbar">
+  <div class="nav-links">
+    <a href="index.html" class="nav-link active">MAIN</a>
+    <a href="NIGHTPETS.html" class="nav-link">NIGHT PETS</a>
+    <a href="BEEEVENTPETS.html" class="nav-link">BEE EVENT PETS</a>
+    <a href="SUMMERPETS.html" class="nav-link">SUMMER PETS</a>
+    <a href="OTHERS.html" class="nav-link">OTHERS</a>
+    <a href="PAYMENT.html" class="pay-button">Pay Now</a>
+  </div>
+</nav>
+
+
+  <!-- Title -->
+  <h1>Welcome to Sam's Shop</h1>
+
+  <!-- Category Buttons -->
+  <div class="center-content">
+    <a href="NIGHTPETS.html" class="link-card">Explore Night Pets</a>
+    <a href="BEEEVENTPETS.html" class="link-card">Explore Bee Event Pets</a>
+    <a href="SUMMERPETS.html" class="link-card">Explore Summer Pets</a>
+  </div>
+
+</body>
+</html>

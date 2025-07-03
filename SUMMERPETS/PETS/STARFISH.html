@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Grows Offline Garden Cards</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --border-color: #444;
+      --popup-bg: rgba(255, 255, 255, 0.9);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Fredoka One', cursive;
+      background: url('FOREST.gif') no-repeat center center fixed;
+      background-size: cover;
+      overflow-x: hidden;
+    }
+
+    /* NavBar Styles */
+    .navbar {
+      backdrop-filter: blur(30px);
+      box-shadow: 0px 0px 30px rgba(227, 228, 237, 0.37);
+      border: 2px solid rgba(255, 255, 255, 0.18);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 20px;
+      z-index: 1000;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .nav-link {
+      font-family: 'Fredoka One', cursive;
+      color: #333;
+      text-decoration: none;
+      font-size: 1rem;
+      background: #fff3;
+      padding: 6px 12px;
+      border-radius: 8px;
+      transition: background 0.3s ease;
+    }
+
+    .nav-link:hover {
+      background: #fffa;
+    }
+
+    /* Clouds Animation */
+    .clouds {
+      position: absolute;
+      width: 100%;
+      height: 200px;
+      background: url('https://i.imgur.com/XyK9cYx.png') repeat-x;
+      background-size: contain;
+      animation: cloudMove 60s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes cloudMove {
+      from { background-position-x: 0; }
+      to { background-position-x: -1000px; }
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      color: #fff;
+      text-shadow: 2px 2px 5px #333;
+      margin: 100px 0 30px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 20px;
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .card {
+      width: 100%;
+      aspect-ratio: 3/4;
+      perspective: 1000px;
+      position: relative;
+      transition: transform 0.3s ease; /* Smooth grow/shrink */
+      cursor: pointer; /* Indicates it's clickable */
+    }
+
+    .card-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.6s ease;
+    }
+
+    .card-link {
+    display: inline-block; /* or block if you want full-width */
+    text-decoration: none;
+    color: inherit;
+    }
+
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 4px solid var(--border-color);
+      box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+      backface-visibility: hidden;
+      top: 0;
+      left: 0;
+    }
+
+    .card-front img,
+    .card-back img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+
+
+    .hover-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--popup-bg);
+      color: #222;
+      padding: 8px 12px;
+      border-radius: 10px;
+      font-size: 1rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      text-align: center;
+      z-index: 10;
+    }
+
+    .card:hover {
+    transform: scale(1.05);
+    }
+
+    .card:hover .hover-text {
+      opacity: 0.8;
+      
+    }
+
+    .card img.overlay {
+       position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 180px; /* smaller size */
+      height: auto;
+      pointer-events: none;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+        margin-top: 100px;
+      }
+
+      .container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      .nav-link {
+        font-size: 0.9rem;
+        padding: 5px 10px;
+      }
+      .nav-link.active {
+    background: #ffd54f;
+    color: #000;
+    box-shadow: 0 0 12px 4px rgba(255, 221, 51, 0.8);
+    font-weight: bold;
+  }
+
+    }
+  </style>
+  
+</head>
+<body>
+  <script>
+  const links = document.querySelectorAll('.nav-link');
+  const currentPath = window.location.pathname.split('/').pop();
+
+  links.forEach(link => {
+    const linkPath = link.getAttribute('href');
+    if (linkPath === currentPath) {
+      link.classList.add('active');
+    }
+  });
+</script>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+  <div class="nav-links">
+    <a href="../NIGHTPETS.html" class="nav-link">NIGHT PETS</a>
+    <a href="../BEEEVENTPETS.html" class="nav-link">BEE EVENT PETS</a>
+    <a href="../SUMMERPETS.html" class="nav-link">SUMMER PETS</a>
+  </div>
+  </nav>
+
+
+
+  <!-- Decorative Elements -->
+  <div class="clouds"></div>
+
+  <!-- Title -->
+  <h1>STARFISH</h1>
+
+  <!-- Cards Grid -->
+  <div class="container">
+    <!-- CARD 1 -->
+
+  <div class="card">
+    <div class="hover-text">AVAILABLE</div>
+    <div class="card-inner">
+      <div class="card-front">
+        <img src="../PETBG.png" />
+        <img src="SUMMERPETS/StarfishIcon.png" class="overlay" />
+      </div>
+      <div class="card-back">
+        <img src="PETBG.png" />
+        <img src="SUMMERPETS/StarfishIcon.png" class="overlay" />
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+</body>
+</html>

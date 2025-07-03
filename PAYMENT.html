@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PAYMENT</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Fredoka One', cursive;
+      background: linear-gradient(to bottom, #a8e6cf, #dcedc1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 30px 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #2e7d32;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #444;
+      max-width: 500px;
+    }
+
+    .back-button {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: #ffffffdd;
+      color: #2e7d32;
+      font-size: 1rem;
+      padding: 8px 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+
+    .back-button:hover {
+      background: #e0ffe0;
+      box-shadow: 0 0 12px rgba(46, 125, 50, 0.5);
+    }
+
+    .pay-button {
+      background: #ffca28;
+      color: #000;
+      border: none;
+      padding: 14px 28px;
+      font-size: 1.2rem;
+      border-radius: 12px;
+      margin: 30px 0;
+      cursor: pointer;
+      box-shadow: 0 0 16px 4px rgba(255, 202, 40, 0.5);
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .pay-button:hover {
+      box-shadow: 0 0 25px 8px rgba(255, 202, 40, 0.8);
+      background: #ffd54f;
+    }
+
+    .qr-section {
+      margin-top: 10px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 20px;
+      margin-top: 40px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .social-links a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 1.2rem;
+      padding: 10px 20px;
+      border-radius: 10px;
+      background: #1877f2;
+      box-shadow: 0 0 12px rgba(24, 119, 242, 0.5);
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background: #0d65d9;
+      box-shadow: 0 0 16px rgba(24, 119, 242, 0.8);
+    }
+
+    @media (max-width: 500px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .pay-button {
+        font-size: 1rem;
+        padding: 10px 20px;
+      }
+
+      .social-links a {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Back to Main Button -->
+  <a href="index.html" class="back-button">← Back to Main</a>
+
+  <!-- Main Content -->
+  <h1>Send Your Payment</h1>
+  <p>Please message me first to check if the pet is available. Payment must be sent first with a receipt. Thank you! ❤️</p>
+
+  <!-- GCash Number Only -->
+  <div class="qr-section">
+    <p style="color: #444; font-size: 1.1rem; margin-top: 20px;">
+      GCash Number: <strong>09940598329</strong><br>
+      Please send using your GCash app.
+    </p>
+  </div>
+
+  <!-- Social Media Links -->
+  <div class="social-links">
+    <a href="https://www.facebook.com/samidesan.maysakitsautak" target="_blank">Facebook</a>
+  </div>
+
+</body>
+</html>

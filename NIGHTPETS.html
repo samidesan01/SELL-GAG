@@ -75,49 +75,56 @@
         text-shadow: 2px 2px 5px #333;
       }
 
-      .navbar {
-        backdrop-filter: blur(30px);
-        box-shadow: 0px 0px 30px rgba(227, 228, 237, 0.37);
-        border: 2px solid rgba(255, 255, 255, 0.18);
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 10px 20px;
-        z-index: 1000;
-      }
+      /* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(30px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+}
 
-      .nav-links {
-        display: flex;
-        gap: 15px;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
+.navbar::-webkit-scrollbar {
+  display: none;
+}
 
-      .nav-link {
-        font-family: 'Fredoka One', cursive;
-        color: #333;
-        text-decoration: none;
-        font-size: 1rem;
-        background: #fff3;
-        padding: 6px 12px;
-        border-radius: 8px;
-        transition: background 0.3s ease;
-      }
+.nav-links {
+  display: inline-flex;
+  gap: 18px;
+  padding: 12px 20px;
+}
 
-      .nav-link:hover {
-        background: #fffa;
-      }
+.nav-link {
+  display: inline-block;
+  white-space: nowrap;
+  color: #333;
+  text-decoration: none;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 8px 14px;
+  border-radius: 10px;
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
 
-      .nav-link.active {
-        background: #ffd54f;
-        color: #000;
-        box-shadow: 0 0 12px 4px rgba(255, 221, 51, 0.8);
-        font-weight: bold;
-      }
+.nav-link:hover {
+  background: #fff;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  transform: scale(1.05);
+}
+
+.nav-link.active {
+  background: #ffd54f;
+  color: #000;
+  font-weight: bold;
+  box-shadow: 0 0 12px 4px rgba(255, 221, 51, 0.5);
+}
 
 
 
@@ -269,16 +276,15 @@
     <div class="sparkles"></div>
 
     <nav class="navbar">
-      <div class="nav-links">
-        <a href="index.html" class="nav-link">MAIN</a>
-        <a href="NIGHTPETS.html" class="nav-link">NIGHT PETS</a>
-        <a href="BEEEVENTPETS.html" class="nav-link">BEE EVENT PETS</a>
-        <a href="SUMMERPETS.html" class="nav-link">SUMMER PETS</a>
-        <a href="PREHISTORICPETS.html" class="nav-link">PREHISTORIC PETS</a>
-        <a href="OTHERS.html" class="nav-link">OTHERS</a>
-      </div>
-    </nav>
-
+  <div class="nav-links">
+    <a href="index.html" class="nav-link">MAIN</a>
+    <a href="NIGHTPETS.html" class="nav-link active">NIGHT PETS</a>
+    <a href="BEEEVENTPETS.html" class="nav-link">BEE EVENT PETS</a>
+    <a href="SUMMERPETS.html" class="nav-link">SUMMER PETS</a>
+    <a href="PREHISTORICPETS.html" class="nav-link">PREHISTORIC PETS</a>
+    <a href="OTHERS.html" class="nav-link">OTHERS</a>
+  </div>
+</nav>
 
 
     <div class="title-with-button">

@@ -77,9 +77,9 @@ document.addEventListener("DOMContentLoaded", () => {
     "PREHISTORICPETS.html": {
       folder: "PREHISTORICPETS",
       items: [
-        { name: "Raptor", stock: 5, price: "5₱" },
+        { name: "Raptor", stock: 6, price: "5₱" },
         { name: "Triceratops", stock: 7, price: "8₱" },
-        { name: "Stegosaurus", stock: 1, price: "8₱" },
+        { name: "Stegosaurus", stock: 5, price: "8₱" },
         { name: "Pterodactyl", stock: 0, price: "10₱" },
         { name: "Brontosaurus", stock: 0, price: "150₱" },
         { name: "T-Rex", stock: 0, price: "150₱" },

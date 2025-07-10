@@ -2,26 +2,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const links = document.querySelectorAll(".nav-link");
   const currentPath = window.location.pathname.split("/").pop();
 
-  // Highlight the current page in nav
+  // Highlight current nav link
   links.forEach(link => {
     if (link.getAttribute("href") === currentPath) {
       link.classList.add("active");
     }
   });
-
-  // Add sparkles if you want (optional)
-  const sparkleContainer = document.querySelector(".sparkle-container");
-  if (sparkleContainer) {
-    for (let i = 0; i < 30; i++) {
-      const sparkle = document.createElement("div");
-      sparkle.className = "sparkle";
-      sparkle.style.left = `${Math.random() * 100}%`;
-      sparkle.style.top = `${Math.random() * 100}vh`;
-      sparkle.style.animationDelay = `${Math.random() * 5}s`;
-      sparkle.style.animationDuration = `${2 + Math.random() * 3}s`;
-      sparkleContainer.appendChild(sparkle);
-    }
-  }
 
   const cardMap = {
     "NIGHTPETS.html": {
@@ -77,9 +63,9 @@ document.addEventListener("DOMContentLoaded", () => {
     "PREHISTORICPETS.html": {
       folder: "PREHISTORICPETS",
       items: [
-        { name: "Raptor", stock: 6, price: "5₱" },
+        { name: "Raptor", stock: 5, price: "5₱" },
         { name: "Triceratops", stock: 7, price: "8₱" },
-        { name: "Stegosaurus", stock: 5, price: "8₱" },
+        { name: "Stegosaurus", stock: 1, price: "8₱" },
         { name: "Pterodactyl", stock: 0, price: "10₱" },
         { name: "Brontosaurus", stock: 0, price: "150₱" },
         { name: "T-Rex", stock: 0, price: "150₱" },
@@ -102,44 +88,49 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (data && container) {
     data.items.forEach(item => {
-      const isSheckle = item.name.toLowerCase().includes("sheckle");
       const isAvailable = item.stock > 0;
-      const stockText = isAvailable
-        ? (isSheckle ? `${item.stock}T per 5 PESOS` : `${item.stock} in stock`)
-        : '';
+      const isSheckle = item.name.toLowerCase().includes("sheckle");
+      const stockText = isSheckle
+        ? `${item.stock}T per 5 PESOS`
+        : `${item.stock} in stock`;
 
       const card = document.createElement("div");
-card.className = "card";
-card.innerHTML = `
-  <div class="card-inner">
-    <div class="card-front">
-      <img src="PETBG.png" />
-      <img src="${data.folder}/${item.name}.webp" class="overlay" />
-    </div>
-  </div>
-  <div class="hover-info">
-    <div class="hover-text" style="color: ${isAvailable ? '#222' : 'red'}">
-      ${isAvailable ? 'AVAILABLE' : 'UNAVAILABLE'}
-    </div>
-    <div class="stock-text" style="display: ${isAvailable ? 'block' : 'none'}">
-      ${isSheckle ? `${item.stock}T per 5 PESOS` : `${item.stock} in stock`}
-    </div>
-    ${!isSheckle && item.price ? `
-  <div class="price-text" style="
-    margin-top: 6px;
-    background: white;
-    padding: 4px 14px;
-    border-radius: 999px;
-    font-size: 1rem;
-    font-weight: bold;
-    color: #333;
-    opacity: ${isAvailable ? '0.95' : '0.3'};
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-  ">
-    ${item.price}
-  </div>
-` : ''}
-`;
+      card.className = "card";
+      if (!isAvailable) {
+        card.classList.add("unavailable");
+      }
+
+      card.innerHTML = `
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="PETBG.png" />
+            <img src="${data.folder}/${item.name}.webp" class="overlay" />
+          </div>
+        </div>
+        <div class="hover-info">
+          <div class="hover-text" style="color: ${isAvailable ? '#222' : 'red'}">
+            ${isAvailable ? 'AVAILABLE' : 'UNAVAILABLE'}
+          </div>
+          <div class="stock-text" style="display: ${isAvailable ? 'block' : 'none'}">
+            ${stockText}
+          </div>
+          ${item.price && !isSheckle ? `
+            <div class="price-text" style="
+              margin-top: 6px;
+              background: white;
+              padding: 4px 14px;
+              border-radius: 999px;
+              font-size: 1rem;
+              font-weight: bold;
+              color: #333;
+              opacity: ${isAvailable ? '0.95' : '0.3'};
+              box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+            ">
+              ${item.price}
+            </div>
+          ` : ''}
+        </div>
+      `;
 
       container.appendChild(card);
     });

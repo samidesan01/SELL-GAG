@@ -27,6 +27,27 @@ background-size: cover, cover;
       min-height: 100vh;
     }
 
+    .card.unavailable::after {
+  content: "UNAVAILABLE";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: red;
+  color: white;
+  font-size: 0.9rem;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-weight: bold;
+  z-index: 20;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.card.unavailable {
+  filter: grayscale(100%) brightness(80%);
+  pointer-events: none;
+  opacity: 0.6;
+}
+
 
 
     @keyframes sparkle {
@@ -34,51 +55,55 @@ background-size: cover, cover;
       100% { background-position: 300px 300px; }
     }
 
-    .navbar {
-      backdrop-filter: blur(30px);
-      background: rgba(255, 255, 255, 0.1);
-      box-shadow: 0px 0px 30px rgba(227, 228, 237, 0.3);
-      border-bottom: 2px solid rgba(255, 255, 255, 0.15);
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 10px 20px;
-      z-index: 1000;
-    }
+     .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(30px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+  }
 
-    .nav-links {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+  .navbar::-webkit-scrollbar {
+    display: none;
+  }
 
-    .nav-link {
-      font-family: 'Fredoka One', cursive;
-      color: #333;
-      text-decoration: none;
-      font-size: 1rem;
-      background: #fff5;
-      padding: 6px 12px;
-      border-radius: 8px;
-      transition: background 0.3s ease;
-    }
+  .nav-links {
+    display: inline-flex;
+    gap: 18px;
+    padding: 12px 20px;
+  }
 
-    .nav-link:hover {
-      background: #fff;
-      box-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
-    }
+  .nav-link {
+    display: inline-block;
+    white-space: nowrap;
+    color: #333;
+    text-decoration: none;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 8px 14px;
+    border-radius: 10px;
+    transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  }
 
-    .nav-link.active {
-      background: #ffd54f;
-      color: #000;
-      font-weight: bold;
-      box-shadow: 0 0 12px 4px rgba(255, 221, 51, 0.8);
-    }
+  .nav-link:hover {
+    background: #fff;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+    transform: scale(1.05);
+  }
+
+  .nav-link.active {
+    background: #ffd54f;
+    color: #000;
+    font-weight: bold;
+    box-shadow: 0 0 12px 4px rgba(255, 221, 51, 0.5);
+  }
 
 
     @keyframes cloudMove {

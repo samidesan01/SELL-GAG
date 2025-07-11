@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { name: "ORANG", stock: 3, price: "5₱" },
         { name: "SEAL", stock: 0, price: "10₱" },
         { name: "OST", stock: 5, price: "8₱" },
-        { name: "PEAC", stock: 3, price: "3₱" },
+        { name: "PEAC", stock: 5, price: "3₱" },
         { name: "SCARL", stock: 3, price: "10₱" },
         { name: "MIMIC", stock: 0, price: "200₱" }
       ]
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
       items: [
         { name: "Raptor", stock: 5, price: "5₱" },
         { name: "Triceratops", stock: 7, price: "8₱" },
-        { name: "Stegosaurus", stock: 1, price: "8₱" },
+        { name: "Stegosaurus", stock: 4, price: "8₱" },
         { name: "Pterodactyl", stock: 0, price: "10₱" },
         { name: "Brontosaurus", stock: 0, price: "150₱" },
         { name: "T-Rex", stock: 0, price: "150₱" },

@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { name: "Raccon_Better_Quality", stock: 0, price: "250₱" },
         { name: "Kiwi", stock: 0, price: "10₱" },
         { name: "Blood_Kiwi_Icon", stock: 0, price: "20₱" },
-        { name: "Moon_Cat", stock: 3, price: "15₱" }
+        { name: "Moon_Cat", stock: 0, price: "15₱" }
       ]
     },
     "SUMMERPETS.html": {

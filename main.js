@@ -32,8 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
       items: [
         { name: "STAR", stock: 3, price: "2₱" },
         { name: "SEAG", stock: 1, price: "2₱" },
-        { name: "CRAB", stock: 1, price: "5₱" },
-        { name: "FLA", stock: 5, price: "5₱" },
+        { name: "CRAB", stock: 0, price: "5₱" },
+        { name: "FLA", stock: 4, price: "5₱" },
         { name: "TOUC", stock: 7, price: "10₱" },
         { name: "SEAT", stock: 0, price: "10₱" },
         { name: "CAPY", stock: 4, price: "10₱" },
